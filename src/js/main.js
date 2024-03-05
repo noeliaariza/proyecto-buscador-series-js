@@ -5,15 +5,26 @@ const inputSearch = document.querySelector(".js-input-search");
 const searchButton = document.querySelector(".js-search-button");
 const resetButton = document.querySelector(".js-reset-button");
 const url = "https://api.jikan.moe/v4/anime?q=";
+const fakeUrlfilmImage =
+  "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png";
 
 function renderFilms(filmsList) {
+  filmSection.innerHTML = "";
   for (const film of filmsList) {
     const filmContainer = document.createElement("div");
     filmContainer.classList.add("film-container");
 
     const imgFilm = document.createElement("img");
     imgFilm.classList.add("film-img");
-    imgFilm.setAttribute("src", film.images.jpg.image_url);
+
+    if (film.images.jpg.image_url === fakeUrlfilmImage) {
+      imgFilm.setAttribute(
+        "src",
+        "https://via.placeholder.com/225x314/00ffff/666666/?text=Image%20not%20available"
+      );
+    } else {
+      imgFilm.setAttribute("src", film.images.jpg.image_url);
+    }
     imgFilm.setAttribute("alt", film.title);
 
     const h3 = document.createElement("h3");
