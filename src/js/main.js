@@ -9,12 +9,31 @@ const url = "https://api.jikan.moe/v4/anime?q=";
 const fakeUrlfilmImage =
   "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png";
 
+let filmList = [];
+let favoritesFilms = [];
+
 function handleAddFavorite(ev) {
   console.log(ev.currentTarget.id);
+  console.log(filmList);
+  const filmSelected = filmList.find((film) => {
+    return Number(ev.currentTarget.id) === film.mal_id;
+  });
+  //Buscar si el elemento seleccionado ya existe en favoritos
+  const indexFavoritesFilms = favoritesFilms.findIndex((favoriteItem) => {
+    return favoriteItem.mal_id === Number(ev.currentTarget.id);
+  });
+  if (indexFavoritesFilms === -1) {
+    favoritesFilms.push(filmSelected);
+  }
+  console.log("indexfavorites films esss...", indexFavoritesFilms);
+
+  console.log(favoritesFilms);
+  renderFilms(favoritesFilms, favoritesSection);
+  //console.log("film selected ", filmSelected);
 }
 
-function renderFilms(filmsList) {
-  filmSection.innerHTML = "";
+function renderFilms(filmsList, containerDOM) {
+  containerDOM.innerHTML = "";
   for (const film of filmsList) {
     const filmContainer = document.createElement("div");
     filmContainer.classList.add("film-container");
@@ -48,7 +67,7 @@ function renderFilms(filmsList) {
     filmContainer.appendChild(imgFilm);
     filmContainer.appendChild(h3);
     filmContainer.appendChild(icon);
-    filmSection.appendChild(filmContainer);
+    containerDOM.appendChild(filmContainer);
   }
   const allFilmsContainer = document.querySelectorAll(".js-film-container");
   for (const filmContainer of allFilmsContainer) {
@@ -64,9 +83,9 @@ function handleSearch() {
     .then((response) => response.json())
     .then((data) => {
       //console.log(data);
-      const filmList = data.data; // <- esto es un array
+      filmList = data.data; // <- esto es un array
       //console.log(filmList);
-      renderFilms(filmList);
+      renderFilms(filmList, filmSection);
     });
 }
 
