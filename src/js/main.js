@@ -1,6 +1,7 @@
 "use strict";
 
 const filmSection = document.querySelector(".js-movies-container");
+const favoritesSection = document.querySelector(".js-favorites-container");
 const inputSearch = document.querySelector(".js-input-search");
 const searchButton = document.querySelector(".js-search-button");
 const resetButton = document.querySelector(".js-reset-button");
@@ -8,11 +9,17 @@ const url = "https://api.jikan.moe/v4/anime?q=";
 const fakeUrlfilmImage =
   "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png";
 
+function handleAddFavorite(ev) {
+  console.log(ev.currentTarget.id);
+}
+
 function renderFilms(filmsList) {
   filmSection.innerHTML = "";
   for (const film of filmsList) {
     const filmContainer = document.createElement("div");
     filmContainer.classList.add("film-container");
+    filmContainer.classList.add("js-film-container");
+    filmContainer.id = film.mal_id;
 
     const imgFilm = document.createElement("img");
     imgFilm.classList.add("film-img");
@@ -42,6 +49,10 @@ function renderFilms(filmsList) {
     filmContainer.appendChild(h3);
     filmContainer.appendChild(icon);
     filmSection.appendChild(filmContainer);
+  }
+  const allFilmsContainer = document.querySelectorAll(".js-film-container");
+  for (const filmContainer of allFilmsContainer) {
+    filmContainer.addEventListener("click", handleAddFavorite);
   }
 }
 
