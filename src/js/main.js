@@ -27,10 +27,16 @@ function handleAddFavorite(ev) {
   }
   console.log("indexfavorites films esss...", indexFavoritesFilms);
 
-  console.log(favoritesFilms);
+  console.log("film array favoritas ", favoritesFilms);
   renderFilms(favoritesFilms, favoritesSection);
+  localStorage.setItem("Favorites-films", JSON.stringify(favoritesFilms));
   //console.log("film selected ", filmSelected);
 }
+
+const favoriteFilmsLocalStorage = JSON.parse(
+  localStorage.getItem("Favorites-films")
+);
+//console.log("favoritoslocal ", favoriteFilmsLocalStorage);
 
 function renderFilms(filmsList, containerDOM) {
   containerDOM.innerHTML = "";
@@ -73,6 +79,10 @@ function renderFilms(filmsList, containerDOM) {
   for (const filmContainer of allFilmsContainer) {
     filmContainer.addEventListener("click", handleAddFavorite);
   }
+}
+
+if (favoriteFilmsLocalStorage !== null) {
+  renderFilms(favoriteFilmsLocalStorage, favoritesSection);
 }
 
 function handleSearch() {
