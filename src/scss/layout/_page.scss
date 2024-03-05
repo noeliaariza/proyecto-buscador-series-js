@@ -11,7 +11,7 @@ body {
   margin-bottom: 20px;
 }
 
-.inputSearch{
+.input-search{
   width: 500px;
   height: 40px;
   border: 3px solid cyan;
@@ -30,24 +30,30 @@ body {
 }
 
 .film-img{
-  width: 206px;
-  height: 303px;
+  width: 225px;
+  height: 314px;
   
 }
 
 .sections-container{
   display: flex;
-  width: 100%;
+  
+}
+
+.movies-container{
+  display: flex;
+
 }
 
 .favorites-section{
   background-color: aqua;
-  width: 30%;
+ 
 
 }
 
 .film-section{
   background-color: brown;
-  width: 70%;
+  display: flex;
+  flex-direction: column;
 
 }
