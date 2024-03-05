@@ -9,7 +9,7 @@ const url = "https://api.jikan.moe/v4/anime?q=";
 function renderFilms(filmsList) {
   for (const film of filmsList) {
     const filmContainer = document.createElement("div");
-    filmContainer.classList.add("favorite-film-container");
+    filmContainer.classList.add("film-container");
 
     const imgFilm = document.createElement("img");
     imgFilm.classList.add("film-img");
@@ -25,6 +25,7 @@ function renderFilms(filmsList) {
     icon.classList.add("fa-solid");
     icon.classList.add("fa-circle-xmark");
     icon.classList.add("cross-icon");
+    icon.classList.add("hidden");
 
     filmContainer.appendChild(imgFilm);
     filmContainer.appendChild(h3);
