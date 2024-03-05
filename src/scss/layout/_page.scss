@@ -1,7 +1,53 @@
 body {
   padding: 2rem;
   height: 100vh;
-  background-image: url('../images/bg-adalab.png');
-  background-color: $color-bg;
+  
+  background-color: #b6deeb;
   font-family: $font-main;
+}
+
+.search-section{
+  background-color: blueviolet;
+  margin-bottom: 20px;
+}
+
+.inputSearch{
+  width: 500px;
+  height: 40px;
+  border: 3px solid cyan;
+  margin-top: 15px
+}
+
+.button{
+  width: 100px;
+  height: 40px;
+  color: white;
+  background-color: cyan;
+  border: none;
+  border-radius: 5px;
+
+
+}
+
+.film-img{
+  width: 206px;
+  height: 303px;
+  
+}
+
+.sections-container{
+  display: flex;
+  width: 100%;
+}
+
+.favorites-section{
+  background-color: aqua;
+  width: 30%;
+
+}
+
+.film-section{
+  background-color: brown;
+  width: 70%;
+
 }
