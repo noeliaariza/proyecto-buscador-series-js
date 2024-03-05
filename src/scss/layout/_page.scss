@@ -8,7 +8,6 @@ body {
 }
 
 .search-section{
-  background-color: rgb(85, 85, 85);
   margin-bottom: 20px;
 }
 
@@ -51,7 +50,10 @@ body {
 }
 
 .film-container{
-  width: 225px;
+  width: 231px;
+  margin:10px;
+  text-align: center;
+  
 }
 
 .favorites-section{
@@ -64,5 +66,39 @@ body {
   background-color: rgb(36, 36, 36);
   display: flex;
   flex-direction: column;
+  border: 5px solid #fff;
+  border-radius: 5px;
+  margin-left: 10px;
+  min-width: 72%;
+}
 
+.favorites-section{
+  background-color: rgb(36, 36, 36);
+  display: flex;
+  flex-direction: column;
+  border: 5px solid #F2B9C2;
+  border-radius: 5px;
+}
+
+.film-selected{
+  border: 3px solid #5FC2B5;
+  color: #5FC2B5;
+}
+
+.principal-title{
+  color: #7CFBFD;
+}
+
+.result-title{
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.favorites-title{
+  background-color: #F2B9C2;
+  color: #000;
+  text-align: center;
+  padding: 5px 0;
 }

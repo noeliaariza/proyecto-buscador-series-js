@@ -22,6 +22,7 @@ function handleAddFavorite(ev) {
   const indexFavoritesFilms = favoritesFilms.findIndex((favoriteItem) => {
     return favoriteItem.mal_id === Number(ev.currentTarget.id);
   });
+
   if (indexFavoritesFilms === -1) {
     favoritesFilms.push(filmSelected);
   }
@@ -30,7 +31,8 @@ function handleAddFavorite(ev) {
   console.log("film array favoritas ", favoritesFilms);
   renderFilms(favoritesFilms, favoritesSection);
   localStorage.setItem("Favorites-films", JSON.stringify(favoritesFilms));
-  //console.log("film selected ", filmSelected);
+  console.log("film selected ", filmSelected.mal_id);
+  ev.currentTarget.classList.add("film-selected");
 }
 
 const favoriteFilmsLocalStorage = JSON.parse(
