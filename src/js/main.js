@@ -101,4 +101,10 @@ function handleSearch() {
     });
 }
 
+function handleReset() {
+  filmSection.innerHTML = "";
+  favoritesSection.innerHTML = "";
+}
+
 searchButton.addEventListener("click", handleSearch);
+resetButton.addEventListener("click", handleReset);
