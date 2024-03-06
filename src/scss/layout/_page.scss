@@ -1,10 +1,15 @@
+html {
+  height: 100%;
+}
 body {
   padding: 2rem;
   height: 100vh;
   background: rgb(2,48,71);
-  background: linear-gradient(180deg, rgba(2,48,71,1) 12%, rgba(33,158,188,1) 100%);
+  background: linear-gradient(180deg, rgba(2,48,71,1) 0%, rgba(33,158,188,1) 100%);
   font-family: "Quicksand", sans-serif;
   font-weight: 100;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100%;
 }
 
