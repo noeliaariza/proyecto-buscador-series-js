@@ -89,7 +89,7 @@ function renderFilms(filmsList, containerDOM) {
 }
 
 if (favoriteFilmsLocalStorage !== null) {
-  //favoritesFilms = localStorage;
+  favoritesFilms = favoriteFilmsLocalStorage;
   renderFilms(favoriteFilmsLocalStorage, favoritesSection);
 }
 
@@ -123,3 +123,7 @@ function handleResetFavs() {
 searchButton.addEventListener("click", handleSearch);
 resetButton.addEventListener("click", handleReset);
 deleteFavs.addEventListener("click", handleResetFavs);
+inputSearch.addEventListener(
+  "keypress",
+  (e) => e.key === "Enter" && handleSearch()
+);
