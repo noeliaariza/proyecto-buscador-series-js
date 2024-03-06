@@ -29,6 +29,7 @@ function handleAddFavorite(ev) {
   if (indexFavoritesFilms === -1) {
     favoritesFilms.push(filmSelected);
   }
+
   console.log("indexfavorites films esss...", indexFavoritesFilms);
 
   console.log("film array favoritas ", favoritesFilms);
