@@ -32,18 +32,11 @@ function handleAddFavorite(ev) {
   renderFilms(favoritesFilms, favoritesSection);
   localStorage.setItem("Favorites-films", JSON.stringify(favoritesFilms));
   ev.currentTarget.classList.add("film-selected");
-
-  //console.log("indexfavorites films esss...", indexFavoritesFilms);
-
-  //console.log("film array favoritas ", favoritesFilms);
-
-  //console.log("film selected ", filmSelected.mal_id);
 }
 
 const favoriteFilmsLocalStorage = JSON.parse(
   localStorage.getItem("Favorites-films")
 );
-//console.log("favoritoslocal ", favoriteFilmsLocalStorage);
 
 function renderFilms(filmsList, containerDOM) {
   containerDOM.innerHTML = "";
@@ -96,13 +89,11 @@ if (favoriteFilmsLocalStorage !== null) {
 function handleSearch() {
   const inputValue = inputSearch.value;
   const urlFinal = url + inputValue;
-  //console.log("url es ", urlFinal);
+
   fetch(urlFinal)
     .then((response) => response.json())
     .then((data) => {
-      //console.log(data);
-      filmList = data.data; // <- esto es un array
-      //console.log(filmList);
+      filmList = data.data;
       renderFilms(filmList, filmSection);
     });
 }
