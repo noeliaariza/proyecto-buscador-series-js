@@ -29,14 +29,15 @@ function handleAddFavorite(ev) {
   if (indexFavoritesFilms === -1) {
     favoritesFilms.push(filmSelected);
   }
-
-  console.log("indexfavorites films esss...", indexFavoritesFilms);
-
-  console.log("film array favoritas ", favoritesFilms);
   renderFilms(favoritesFilms, favoritesSection);
   localStorage.setItem("Favorites-films", JSON.stringify(favoritesFilms));
-  console.log("film selected ", filmSelected.mal_id);
   ev.currentTarget.classList.add("film-selected");
+
+  //console.log("indexfavorites films esss...", indexFavoritesFilms);
+
+  //console.log("film array favoritas ", favoritesFilms);
+
+  //console.log("film selected ", filmSelected.mal_id);
 }
 
 const favoriteFilmsLocalStorage = JSON.parse(
@@ -88,6 +89,7 @@ function renderFilms(filmsList, containerDOM) {
 }
 
 if (favoriteFilmsLocalStorage !== null) {
+  //favoritesFilms = localStorage;
   renderFilms(favoriteFilmsLocalStorage, favoritesSection);
 }
 
