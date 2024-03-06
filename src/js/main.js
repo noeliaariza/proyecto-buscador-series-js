@@ -5,6 +5,8 @@ const favoritesSection = document.querySelector(".js-favorites-container");
 const inputSearch = document.querySelector(".js-input-search");
 const searchButton = document.querySelector(".js-search-button");
 const resetButton = document.querySelector(".js-reset-button");
+const deleteFavs = document.querySelector(".js-delete-favs-list");
+
 const url = "https://api.jikan.moe/v4/anime?q=";
 const fakeUrlfilmImage =
   "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png";
@@ -109,5 +111,12 @@ function handleReset() {
   localStorage.clear();
 }
 
+function handleResetFavs() {
+  favoritesSection.innerHTML = "";
+  favoritesFilms = [];
+  localStorage.clear();
+}
+
 searchButton.addEventListener("click", handleSearch);
 resetButton.addEventListener("click", handleReset);
+deleteFavs.addEventListener("click", handleResetFavs);
