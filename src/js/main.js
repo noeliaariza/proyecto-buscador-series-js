@@ -18,7 +18,8 @@ function handleAddFavorite(ev) {
   const filmSelected = filmList.find((film) => {
     return Number(ev.currentTarget.id) === film.mal_id;
   });
-  //Buscar si el elemento seleccionado ya existe en favoritos
+
+  //search if selected item exists in favs =>
   const indexFavoritesFilms = favoritesFilms.findIndex((favoriteItem) => {
     return favoriteItem.mal_id === Number(ev.currentTarget.id);
   });
@@ -104,6 +105,8 @@ function handleSearch() {
 function handleReset() {
   filmSection.innerHTML = "";
   favoritesSection.innerHTML = "";
+  favoritesFilms = [];
+  localStorage.clear();
 }
 
 searchButton.addEventListener("click", handleSearch);
